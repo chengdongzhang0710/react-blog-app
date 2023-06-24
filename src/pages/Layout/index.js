@@ -1,4 +1,4 @@
-import { Layout, Menu, message, Popconfirm } from "antd";
+import { Layout, Menu, Popconfirm } from "antd";
 import { DiffOutlined, EditOutlined, HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -38,7 +38,7 @@ const MainLayout = () => {
       </Header>
       <Layout>
         <Sider width="200" className="site-layout-background">
-          <Menu mode="inline" theme="dark" defaultSelectedKeys={ [selectedKey] }
+          <Menu mode="inline" theme="dark" selectedKeys={ [selectedKey] }
                 style={ { height: "100%", borderRight: 0 } }>
             <Menu.Item icon={ <HomeOutlined/> } key="/">
               <Link to="/">数据概览</Link>
