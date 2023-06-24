@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getToken } from "@/utils/token";
+import { deleteToken, getToken } from "@/utils/token";
+import { history } from "@/utils/history";
 
 const http = axios.create({
   baseURL: "http://geek.itheima.net/v1_0",
@@ -19,6 +20,10 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(response => {
   return response.data;
 }, error => {
+  if (error.response.status === 401) {
+    deleteToken();
+    history.push("/login");
+  }
   return Promise.reject(error);
 });
 
