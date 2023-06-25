@@ -14,10 +14,6 @@ const Article = () => {
   const [params, setParams] = useState({ page: 1, per_page: 10 });
 
   useEffect(() => {
-    channelStore.loadChannelList();
-  }, [channelStore]);
-
-  useEffect(() => {
     articleStore.loadList(params);
   }, [articleStore, params]);
 
@@ -118,7 +114,7 @@ const Article = () => {
       <Card
         title={
           <Breadcrumb separator=">">
-            <Breadcrumb.Item><Link to="/home">首页</Link></Breadcrumb.Item>
+            <Breadcrumb.Item><Link to="/">首页</Link></Breadcrumb.Item>
             <Breadcrumb.Item>内容管理</Breadcrumb.Item>
           </Breadcrumb>
         }

@@ -10,13 +10,14 @@ const { Header, Sider } = Layout;
 
 const MainLayout = () => {
   const location = useLocation();
-  const { loginStore, userStore } = useStore();
+  const { loginStore, userStore, channelStore } = useStore();
   const navigate = useNavigate();
   const selectedKey = location.pathname;
 
   useEffect(() => {
     userStore.syncUserInfo();
-  }, [userStore]);
+    channelStore.loadChannelList();
+  }, [userStore, channelStore]);
 
   const onLogout = () => {
     loginStore.logout();

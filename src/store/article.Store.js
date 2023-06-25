@@ -16,6 +16,18 @@ class ArticleStore {
     this.count = total_count;
   };
 
+  getArticle = async id => {
+    return await http.get(`/mp/articles/${ id }`);
+  };
+
+  uploadArticle = async params => {
+    await http.post("/mp/articles?draft=false", params);
+  };
+
+  modifyArticle = async (id, params) => {
+    await http.put(`/mp/articles/${ id }?draft=false`, params);
+  };
+
   deleteArticle = async id => {
     await http.delete(`/mp/articles/${ id }`);
   };
